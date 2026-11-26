@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="top">
+      <p class="eyebrow">Panel de entregas</p>
+      <h1>Gestor de tareas<span class="dot">.</span></h1>
+      <p class="lead">Lo que tienes pendiente, con su fecha, para que no se te pase nada.</p>
+    </header>
+
+    <section class="stats" aria-label="Resumen de tareas">
+      <article class="stat">
+        <span class="stat-label">Total</span>
+        <strong id="stat-total">0</strong>
+      </article>
+      <article class="stat stat--pendiente">
+        <span class="stat-label">Pendientes</span>
+        <strong id="stat-pendiente">0</strong>
+      </article>
+      <article class="stat stat--progreso">
+        <span class="stat-label">En progreso</span>
+        <strong id="stat-progreso">0</strong>
+      </article>
+      <article class="stat stat--entregada">
+        <span class="stat-label">Entregadas</span>
+        <strong id="stat-entregada">0</strong>
+      </article>
+    </section>
+
+    <div class="layout">
+      <form id="task-form" novalidate>
+        <h2>Tarea</h2>
+
+        <div class="field">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" placeholder="Ej: Tarea 3 de Git Flow" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="materia">Materia</label>
+          <input type="text" id="materia" placeholder="Ej: Programación III" autocomplete="off">
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="fecha">Entrega</label>
+            <input type="date" id="fecha">
+          </div>
+          <div class="field">
+            <label for="estado">Estado</label>
+            <select id="estado">
+              <option value="Pendiente">Pendiente</option>
+              <option value="En progreso">En progreso</option>
+              <option value="Entregada">Entregada</option>
+            </select>
+          </div>
+        </div>
+
+        <ul id="form-errors" class="errors"></ul>
+
+        <div class="actions">
+          <button type="submit" id="submit-btn">Guardar</button>
+          <button type="button" id="cancel-edit" class="secondary" hidden>Cancelar</button>
+        </div>
+      </form>
+
+      <section class="list">
+        <div class="list-head">
+          <h2>Tus tareas</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Materia</th>
+                <th>Entrega</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tasks-body"></tbody>
+          </table>
+        </div>
+
+        <p id="empty-msg" class="empty" hidden>No hay tareas registradas. Agrega la primera con el formulario.</p>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <span>HTML, CSS y JavaScript</span>
+      <span>Tarea 3 · Git Flow</span>
+    </footer>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/validate.js"></script>
+  <script src="js/create.js"></script>
+  <script src="js/read.js"></script>
+  <script src="js/update.js"></script>
+  <script src="js/delete.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
